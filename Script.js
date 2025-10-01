@@ -40,11 +40,30 @@ function playRound(humanChoice, computerChoice){
     else if(humanChoice == "paper" && computerChoice == "Rock"){
         userScore = userScore + 1;
     }
+    // if statements for if the computer gains a point
+    else if(humanChoice == "scissors" && computerChoice == "Rock"){
+        compScore = compScore + 1;
+    }
+    else if(humanChoice == "rock" && computerChoice == "Paper"){
+        compScore = compScore + 1;
+    }
+    else if(humanChoice == "paper" && computerChoice == "Scissors"){
+        compScore = compScore + 1;
+    }
+    // else for anything else
+    else{
+        console.log("No winner");
+    }
     console.log("User's Score: " + userScore);
     console.log("Computer's Score: " + compScore);
 }
 
+let rounds = parseInt(prompt("How many round would you like to play?"));
 const usersSelection = getUserChoice();
 const compSelection = getComputerChoice();
 
-playRound(usersSelection, compSelection);
+
+
+for (let i = 1; i <= rounds; i++){
+    playRound(usersSelection, compSelection);
+}
