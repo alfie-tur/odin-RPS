@@ -4,25 +4,47 @@ function getComputerChoice(){
     
     if(compNum > 66){
         compChoice = "Rock"
+        console.log(compChoice)
+        return compChoice;
     }
     else if(compNum > 33 && compNum < 66){
         compChoice = "Paper"
+        console.log(compChoice)
+        return compChoice;
     }
     else if(compNum < 33){
         compChoice = "Scissors"
+        console.log(compChoice)
+        return compChoice;
     }
-    console.log(compChoice)
 }
 
 function getUserChoice(){
-    let userInput = prompt("please enter either rock paper or scissors");
-    
+    let userChoice = prompt("please enter your choice rock, paper or scissors.");
+    let userResult = userChoice.toLowerCase();
+    console.log(userResult);
+    return userChoice;
 }
 
 let userScore = 0;
 let compScore = 0;
 
-function playRound(user, comp){
-    
+function playRound(humanChoice, computerChoice){
+    // if statements for if the user gains a point
+    if(humanChoice == "rock" && computerChoice == "Scissors"){
+        userScore = userScore + 1;
+    }
+    else if(humanChoice == "scissors" && computerChoice == "Paper"){
+        userScore = userScore + 1;
+    }
+    else if(humanChoice == "paper" && computerChoice == "Rock"){
+        userScore = userScore + 1;
+    }
+    console.log("User's Score: " + userScore);
+    console.log("Computer's Score: " + compScore);
 }
-console.log(playRound(userInput, compChoice))
+
+const usersSelection = getUserChoice();
+const compSelection = getComputerChoice();
+
+playRound(usersSelection, compSelection);
